@@ -1,9 +1,25 @@
 class Grammar:
-    def __init__(self):
+    def __init__(self, language=None):
         self.terminals = {}
         self.nonterminals = set()
         self.productions = {}
         self.start = None
+
+        if language == "en":
+            self.add_terminal("noun", "nouns.txt")
+            self.add_terminal("verb", "verbs.txt")
+            self.add_terminal("preposition", "prepositions.txt")
+            self.add_terminal("determiner", "determiners.txt")
+            self.add_nonterminal("sentence")
+            self.add_nonterminal("noun_phrase")
+            self.add_nonterminal("verb_phrase")
+            self.add_nonterminal("prepositional_phrase")
+            self.add_nonterminal("sentence")
+            self.start = "sentence"
+            self.add_production("sentence", "noun_phrase verb_phrase")
+            self.add_production("noun_phrase", "determiner noun|determiner noun prepositional_phrase|noun|noun prepositional_phrase")
+            self.add_production("verb_phrase", "verb noun_phrase prepositional_phrase|verb noun_phrase|verb")
+            self.add_production("prepositional_phrase", "preposition noun_phrase")
 
     def set_start(self, start: str):
         self.start = start
