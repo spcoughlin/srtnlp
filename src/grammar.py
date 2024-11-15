@@ -4,6 +4,7 @@ class Grammar:
         self.nonterminals = set()
         self.productions = {}
         self.start = None
+        self.filedir = ""
 
         if language == "en":
             self.add_terminal("noun", "nouns.txt")
@@ -20,6 +21,7 @@ class Grammar:
             self.add_production("noun_phrase", "determiner noun|determiner noun prepositional_phrase|noun|noun prepositional_phrase")
             self.add_production("verb_phrase", "verb noun_phrase prepositional_phrase|verb noun_phrase|verb")
             self.add_production("prepositional_phrase", "preposition noun_phrase")
+            self.filedir = "english/"
 
     def set_start(self, start: str):
         self.start = start
@@ -51,6 +53,9 @@ class Grammar:
         if not self.productions.get(nonterminal):
             self.productions[nonterminal] = []
         self.productions[nonterminal].append(rules)
+
+    def set_filedir(self, filedir: str):
+        self.filedir = filedir
 
     def print_grammar(self):
         print("Terminals:")
