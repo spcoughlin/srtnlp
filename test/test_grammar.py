@@ -1,5 +1,9 @@
 import unittest
 from src import grammar
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 class TestGrammar(unittest.TestCase):
     def test_grammar_initialization(self):

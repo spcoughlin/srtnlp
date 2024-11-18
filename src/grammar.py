@@ -21,7 +21,7 @@ class Grammar:
             self.add_production("noun_phrase", "determiner noun|determiner noun prepositional_phrase|noun|noun prepositional_phrase")
             self.add_production("verb_phrase", "verb noun_phrase prepositional_phrase|verb noun_phrase|verb")
             self.add_production("prepositional_phrase", "preposition noun_phrase")
-            self.filedir = "english/"
+            self.filedir = "src/english/"
 
     def set_start(self, start: str):
         self.start = start

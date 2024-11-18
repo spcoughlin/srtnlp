@@ -897,6 +897,7 @@ web
 weigh
 weight
 well
+went
 were
 wheel
 win

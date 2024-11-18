@@ -1,4 +1,4 @@
-import grammar
+from . import grammar
 import string
 
 class CustomRule:
