@@ -165,4 +165,3 @@ cython_debug/
 src/pos.train.txt
 src/pos.test.txt
 src/example.srt
-src/
