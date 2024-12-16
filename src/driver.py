@@ -8,10 +8,10 @@ grammar = Grammar("en")
 # open the srt file
 text = "the cats are on the mats"
 
-tagger = Tagger(text)
-tagger.load_grammar(grammar)
-tagger.model.load_grammar(grammar)
-tagger.model.train()
-tagged_text = tagger.tag()
-for word, tag in tagged_text:
-    print(f"{word}/({tag})", end=" ")
+# tagger = Tagger(text)
+# tagger.load_grammar(grammar)
+# tagger.model.load_grammar(grammar)
+# tagger.model.train()
+# tagged_text = tagger.tag()
+# for word, tag in tagged_text:
+#     print(f"{word}/({tag})", end=" ")
