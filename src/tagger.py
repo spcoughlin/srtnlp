@@ -1,34 +1,18 @@
 import grammar
-import perceptron
-import string
+import hmm
 
 class Tagger:
-    def __init__(self, text):
+    def __init__(self, grammar=grammar.Grammar(), textfile="", trainfile=""):
         self.terminals = []
-        self.textfiles = []
-        self.text = text
-        self.filedir = ""
-        self.model = perceptron.Perceptron(n=0)
+        self.textfile = textfile
+        self.trainfile = trainfile
+        self.model = hmm.HMModel(grammar)
 
-    def load_grammar(self, grammar: grammar.Grammar):
-        filedir = grammar.filedir
-        for terminal in grammar.terminals.keys():
-            self.terminals.append(terminal)
-            self.textfiles.append(filedir + grammar.terminals[terminal])
+    def train(self):
+        with open(self.trainfile, "r") as f:
+            lines = f.readlines()
 
-    def load_text(self, text):
-        self.text = text
-
-    def textfile_to_list(self, textfile):
-        with open(textfile, 'r') as file:
-            return file.read().splitlines()
+        self.model.train(lines)
 
     def tag(self):
-        words = self.text.split()
-        tagged = []
-        for word in words:
-            tag = self.model.predict(word)
-            tagged.append((word, tag))
-        return tagged
-
-
+        self.model.tag(self.textfile)
