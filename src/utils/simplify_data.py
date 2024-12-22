@@ -89,7 +89,8 @@ def main():
         'WDT': 'DT',
         'WP': 'N',
         'WP$': 'N',
-        'WRB': 'RB'
+        'WRB': 'RB',
+        'BREAK': 'BREAK'
     }
 
     simplify_data(file, symbol_map)

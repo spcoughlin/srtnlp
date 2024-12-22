@@ -8,7 +8,7 @@ grammar = Grammar("en")
 text = "the cats are on the mats"
 
 # create a tagger object
-tagger = Tagger(grammar, text, "pos.train.txt")
+tagger = Tagger(grammar, text, "data/pos.train.txt")
 print("Training the model...")
 tagger.train()
 print("Tagging the text...")
